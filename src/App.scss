@@ -1,3 +1,5 @@
+@import './Utils/_helpers.scss';
+
 .App {
   /* background-color: #393C58; */
   background: linear-gradient(172deg, rgba(2,0,36,1) 0%, rgba(57,60,88,1) 51%, rgba(21,114,118,1) 100%);
@@ -13,11 +15,16 @@
 #calculator {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  width: 300px;
+  height: 100vh;
+  width: 100%;
   background-color: #2B2D41;
   /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+  @media (min-width: $breakpoint-desktop) {
+    height: 500px;
+    width: 300px;
+  }
 }
 
 #display {
@@ -57,6 +64,16 @@
   /* background: #0C0B2E; */
   border: none;
   color: #fff;
+  transition: 0.4s;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer;
+  }
+  
+  &:focus{
+    outline: none;
+  }
 }
 
 #pad .dark{
@@ -67,20 +84,20 @@
   color: #438e91;
 }
 
-#pad button:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  cursor: pointer;
-}
-
-#pad button:focus{
-  outline: none;
-}
-
 #pad #zero{
   flex-basis: 50%;
 }
 
-#signature {
+#author {
   margin-top: 16px;
   font-size: 12px;
+
+  a {
+    color: #fff;
+    transition: 0.4s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {
@@ -35,7 +35,7 @@ class App extends Component {
           </div>
 
         </div>
-        <span id="signature">Designed and Coded by Alex Disdier</span>
+        <span id="author">Designed and Coded by <a href="https://alexdisdier.fr" target="_blank">Alex Disdier</a></span>
       </div>
     );
   }
