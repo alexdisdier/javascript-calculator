@@ -1,14 +1,6 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  /* background-color: #393C58; */
+  background: linear-gradient(172deg, rgba(2,0,36,1) 0%, rgba(57,60,88,1) 51%, rgba(21,114,118,1) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,15 +10,77 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#calculator {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 300px;
+  background-color: #2B2D41;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+  background-color: #157276;
+}
+
+#statement {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+#inputElement {
+  font-size: 32px;
+}
+
+#pad {
+  display: flex;
+  flex-wrap: wrap;
+  height: 70%;
+  width: auto;
+}
+
+#pad button {
+  flex-grow: 1;
+  flex-basis: 25%;
+  height: 20%;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  background-color:rgba(12,11,46, 0.2);
+  /* background: #0C0B2E; */
+  border: none;
+  color: #fff;
+}
+
+#pad .dark{
+  color: #6d6c81;
+}
+
+#pad .number {
+  color: #438e91;
+}
+
+#pad button:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: pointer;
+}
+
+#pad button:focus{
+  outline: none;
+}
+
+#pad #zero{
+  flex-basis: 50%;
+}
+
+#signature {
+  margin-top: 16px;
+  font-size: 12px;
 }
