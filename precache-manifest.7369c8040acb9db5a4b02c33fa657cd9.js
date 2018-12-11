@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/javascript-calculator/static/js/runtime~main.9bc77732.js"
   },
   {
-    "revision": "d4c8d723e86a4866c890",
-    "url": "/javascript-calculator/static/js/main.d4c8d723.chunk.js"
+    "revision": "deb8bd59faf76be35f5e",
+    "url": "/javascript-calculator/static/js/main.deb8bd59.chunk.js"
   },
   {
     "revision": "324b6cf3b56bf43378ce",
     "url": "/javascript-calculator/static/js/1.324b6cf3.chunk.js"
   },
   {
-    "revision": "d4c8d723e86a4866c890",
-    "url": "/javascript-calculator/static/css/main.b0716a3a.chunk.css"
+    "revision": "deb8bd59faf76be35f5e",
+    "url": "/javascript-calculator/static/css/main.073db5b0.chunk.css"
   },
   {
-    "revision": "36e5dac4d53cb11e04b31da993af8acd",
+    "revision": "a3b7f14982806ece047007842e0c064a",
     "url": "/javascript-calculator/index.html"
   }
 ];
