@@ -27,7 +27,7 @@
   }
 }
 
-#display {
+#display-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,16 +35,28 @@
   height: 30%;
   width: 100%;
   background-color: #157276;
+
+  #output {
+    font-size: 16px;
+    opacity: 0.5;
+  }
+  
+  #display {
+    font-size: 32px;
+  
+    .visible {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 2s linear;
+    }
+    .hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 2s, opacity 2s linear;
+    }
+  }
 }
 
-#statement {
-  font-size: 16px;
-  opacity: 0.5;
-}
-
-#inputElement {
-  font-size: 32px;
-}
 
 #pad {
   display: flex;
@@ -61,10 +73,8 @@
   margin: 0;
   font-size: 20px;
   background-color:rgba(12,11,46, 0.2);
-  /* background: #0C0B2E; */
-  border: none;
+  border: 1px solid rgba(12, 11, 46, 0.1);
   color: #fff;
-  transition: 0.4s;
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -94,7 +104,7 @@
 
   a {
     color: #fff;
-    transition: 0.4s;
+    transition: 0.3s;
 
     &:hover {
       opacity: 0.8;
