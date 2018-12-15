@@ -13,7 +13,9 @@ class App extends Component {
       computingDisplay: '',
       currentDisplay: '0',
       hasSign: false,
-      decimal: false
+      decimal: false,
+      signOver: false,
+      percentClicked: false
     }
 
     this.operatorsHandler = this.operatorsHandler.bind(this);
@@ -25,10 +27,11 @@ class App extends Component {
     this.resetHandler = this.resetHandler.bind(this);
   }
 
-  // My methods 
-  // In case there are errors, I should display the message on calculator. 
-
   operatorsHandler = (event) => {
+    const opsRegex = /\+|-|\*|\//gm; 
+    if (this.state.lastClicked.match(opsRegex) !== null){
+      this.setState({ signOver: true})
+    };
     if (this.state.lastClicked === ' = '){
       const temp = this.state.currentDisplay // result of computation
       this.setState({
@@ -51,17 +54,9 @@ class App extends Component {
   }
 
   numbersHandler = (event) => {
-    if (this.state.currentValue.length > 12 ){
-      return ;
+    if (this.state.currentValue.length > 12 && this.state.currentSign === ''){
+      return;
     }
-    // const opsRegex = /\+|-|\*|\//gm; 
-
-    // formula: e.target.value != '0' ? e.target.value : '',
-
-    // const notZero = /[1-9]/gm; 
-    // if (this.state.currentDisplay.match(notZero) === null){
-    //   console.log('[1-9]');
-    // }
 
     const currentValueCheckZero = this.state.currentValue + event.target.value !== '0' ? this.state.currentValue + event.target.value : '';
 
@@ -108,10 +103,8 @@ class App extends Component {
   }
 
   decimalHandler = (event) => {
-    // should add the decimal lastclicked if it is number, otherwise it creates automatically 0,
     const lastValue = this.state.currentValue;
     if (this.state.currentValue.includes('.')){
-      // console.log('has decimal already');
       return;
     }
 
@@ -133,15 +126,25 @@ class App extends Component {
   }
 
   percentageHandler = (event) => {
-    // console.log(event.target.value);
-    this.setState({
-      currentValue: event.target.value,
-      currentDisplay: event.target.value
-    })
+    // const formula = (a, b) => {
+    //   return parseFloat(a) * (parseFloat(b)/100);
+    // }
+    if (this.state.currentSign === ''){
+      this.setState({
+        currentValue: parseFloat(this.state.currentValue / 100),
+        currentDisplay: parseFloat(this.state.currentValue / 100),
+        computingDisplay: parseFloat(this.state.currentValue / 100)
+      })
+    } else {
+      this.setState({
+        currentValue: parseFloat(this.state.currentValue / 100),
+        currentDisplay: parseFloat(this.state.currentValue / 100),
+        computingDisplay: this.state.previousValue + this.state.currentSign + this.state.previousValue + '*' + parseFloat(this.state.currentValue / 100)
+      })
+    }
   }
 
   negativePositiveHandler = (event) => {
-    // console.log(event.target.value);
     const negativePositive = -this.state.currentValue;
 
     const isNegative = Math.sign(parseFloat(this.state.currentValue)) === 1;
@@ -174,8 +177,6 @@ class App extends Component {
     
     else if (this.state.lastClicked === ' = '){
       const currentValue = this.state.currentdisplay;
-      // const negativePositive = -this.state.currentValue;
-      console.log(currentValue);
       this.setState({
         currentValue: '-' + currentValue,
         currentDisplay: '-' + currentValue,
@@ -193,74 +194,35 @@ class App extends Component {
   }
 
   computeHandler = (event) => {
-    // Operators regex
-    const opsRegex = /\+|-|\*|\//gm; 
-  
-    //test
-      const computeArray = this.state.computingDisplay.split(' ')
-      ;
-      // computeArray.push(computeArray[computeArray.length-2]);
-      console.log(computeArray);
-      let compute = parseFloat(computeArray[0]);
+    // const opsRegex = /\+|-|\*|\//gm; 
 
-      computeArray.map((n, index) => {
-        if (!isNaN(n)){
-          if (computeArray[index+1] === '+'){
-            compute += parseFloat(n);
-          } 
-          else if (computeArray[index+1] === '-'){
-            compute -= parseFloat(n);
-          } 
-          else if (computeArray[index+1] === '*'){
-            compute *= parseFloat(n);
-          }
-          else if (computeArray[index+1] === '/'){
-            compute /= parseFloat(n);
-          }
-        } 
-        return compute;
-      });
-      console.log(compute);
-    //end test
-    
-    if (this.state.computingDisplay.match(opsRegex) === null || this.state.lastClicked === ' = '){
+    if (this.state.currentValue === ''){
       return;
     }
 
-    if (this.state.currentValue === '' && this.state.currentSign.match(opsRegex) !== null){
-      return;
+    if (this.state.signOver){
+      let result = eval(this.state.previousValue + this.state.currentSign + this.state.currentValue); // toFixed() allows us to round up at 10 digits. (number).toFixed(10)
+      this.setState({
+        currentValue: '',
+        currentDisplay: result,
+        currentSign: '',
+        previousValue: this.state.currentValue,
+        lastClicked: event.target.value,
+        computingDisplay: this.state.computingDisplay + ' = ' + result,
+        signOver: false
+      })
+    } else {
+      let result = eval(this.state.computingDisplay);
+      this.setState({
+        currentValue: '',
+        currentDisplay: result,
+        currentSign: '',
+        previousValue: this.state.currentValue,
+        lastClicked: event.target.value,
+        computingDisplay: this.state.computingDisplay + ' = ' + result,
+        signOver: false
+      })
     }
-    
-    // For multiple equation, check for more than one sign, if so keep the result from before and use the next sign to calculate.
-
-    let result;
-
-    if (this.state.lastClicked === ' = '){
-
-      result = parseFloat(this.state.previousValue) + parseFloat(this.state.currentValue);
-    }
-
-    if (this.state.currentSign === ' + '){
-      result = parseFloat(this.state.previousValue) + parseFloat(this.state.currentValue);
-
-    } else if (this.state.currentSign === ' - '){
-      result = parseFloat(this.state.previousValue) - parseFloat(this.state.currentValue);
-
-    } else if (this.state.currentSign === ' * '){
-      result = parseFloat(this.state.previousValue) * parseFloat(this.state.currentValue);
-
-    } else if (this.state.currentSign === ' / '){
-      result = parseFloat(this.state.previousValue) / parseFloat(this.state.currentValue);
-    }
-
-    this.setState({
-      currentValue: '',
-      currentDisplay: result,
-      currentSign: '',
-      previousValue: this.state.currentValue,
-      lastClicked: event.target.value,
-      computingDisplay: this.state.computingDisplay + ' = ' + result 
-    })
   }
 
   resetHandler = () => {
@@ -270,17 +232,31 @@ class App extends Component {
       currentSign: '',
       lastClicked: 'AC',
       computingDisplay: '',
-      currentDisplay: '0'
+      currentDisplay: '0',
+      signOver: false
     })
   }
 
   render() {
+    const styleOuput = {
+      fontSize: ''
+    };
+
+    const styleDisplay = {
+      fontSize: ''
+    };
+
+    if (this.state.computingDisplay.length >= 30 ){
+      styleOuput.fontSize = '10px';
+      styleDisplay.fontSize = '20px';
+    }
+
     return (
       <div className="App">
         <div id="calculator">
           <div id="display-flex">
-            <span id="output">{this.state.computingDisplay}</span>
-            <span id="display">{this.state.currentDisplay}</span>
+            <span id="output" style={styleOuput}>{this.state.computingDisplay}</span>
+            <span id="display" style={styleDisplay}>{this.state.currentDisplay}</span>
           </div>
             
           <div id="pad">
