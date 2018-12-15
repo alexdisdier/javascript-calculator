@@ -16,6 +16,83 @@ class App extends Component {
       decimal: false,
       signOver: false,
       percentClicked: false
+      // keyCode: [
+      //   {
+      //     id: 1,
+      //     keyPushed: '0',
+      //     keyCode: 48
+      //   },
+      //   {
+      //     id: 2,
+      //     keyPushed: '1',
+      //     keyCode: 49
+      //   },
+      //   {
+      //     id: 3,
+      //     keyPushed: '2',
+      //     keyCode: 50
+      //   },
+      //   {
+      //     id: 4,
+      //     keyPushed: '3',
+      //     keyCode: 51
+      //   },
+      //   {
+      //     id: 5,
+      //     keyPushed: '4',
+      //     keyCode: 52
+      //   },
+      //   {
+      //     id: 6,
+      //     keyPushed: '5',
+      //     keyCode: 53
+      //   },
+      //   {
+      //     id: 7,
+      //     keyPushed: '6',
+      //     keyCode: 54
+      //   },
+      //   {
+      //     id: 8,
+      //     keyPushed: '7',
+      //     keyCode: 55
+      //   },
+      //   {
+      //     id: 9,
+      //     keyPushed: '8',
+      //     keyCode: 56
+      //   },
+      //   {
+      //     id: 10,
+      //     keyPushed: '9',
+      //     keyCode: 57
+      //   },
+      //   {
+      //     id: 11,
+      //     keyPushed: '+',
+      //     keyCode: 187
+      //   },
+      //   {
+      //     id: 12,
+      //     keyPushed: '-',
+      //     keyCode: 189
+      //   },
+      //   {
+      //     id: 13,
+      //     keyPushed: '*',
+      //     keyCode: 56
+      //   },
+      //   {
+      //     id: 14,
+      //     keyPushed: '/',
+      //     keyCode: 191
+      //   },
+      //   {
+      //     id: 15,
+      //     keyPushed: '=',
+      //     keyCode: 187
+      //   }
+      // ]
     }
 
     this.operatorsHandler = this.operatorsHandler.bind(this);
@@ -25,6 +102,7 @@ class App extends Component {
     this.negativePositiveHandler = this.negativePositiveHandler.bind(this);
     this.computeHandler = this.computeHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   operatorsHandler = (event) => {
@@ -126,9 +204,6 @@ class App extends Component {
   }
 
   percentageHandler = (event) => {
-    // const formula = (a, b) => {
-    //   return parseFloat(a) * (parseFloat(b)/100);
-    // }
     if (this.state.currentSign === ''){
       this.setState({
         currentValue: parseFloat(this.state.currentValue / 100),
@@ -192,6 +267,20 @@ class App extends Component {
       })
     }
   }
+
+  // componentDidMount() {
+  //   document.addEventListener('keydown', this.handleKeyPress);
+  // }
+
+  // componentWillUnmount() {
+  //   document.removeEventListener('keydown', this.handleKeyPress);
+  // }
+
+  // handleKeyPress(e) {
+  //   if (e.keyCode === this.props.keyCode) {
+  //     this.playSoundHandler();
+  //   }
+  // }
 
   computeHandler = (event) => {
     // const opsRegex = /\+|-|\*|\//gm; 
@@ -260,7 +349,8 @@ class App extends Component {
           </div>
             
           <div id="pad">
-            <button id="clear" className="dark" onClick={this.resetHandler}>AC</button>
+            <button id="clear" className="dark" 
+            onClick={this.resetHandler}>AC</button>
             <button id="plus-negative" value="+/-" className="dark" onClick={this.negativePositiveHandler}>+/-</button>
             <button id="percentage" value="%" className="dark" onClick={this.percentageHandler}>%</button>
             <button id="divide" value=" / " onClick={this.operatorsHandler}>/</button>
@@ -282,7 +372,7 @@ class App extends Component {
           </div>
 
         </div>
-        {/* <span id="author">Designed and Coded by <a href="https://alexdisdier.fr" target="_blank" rel="noopener noreferrer">Alex Disdier</a></span> */}
+        <span id="author">Designed and Coded by <a href="https://alexdisdier.fr" target="_blank" rel="noopener noreferrer">Alex Disdier</a></span>
       </div>
     );
   }
