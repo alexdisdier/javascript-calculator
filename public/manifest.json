@@ -1,5 +1,5 @@
 {
-  "short_name": "JS Calcul",
+  "short_name": "Calculator",
   "name": "Javascript Calculator",
   "icons": [{
       "src": "favicon.ico",
@@ -7,18 +7,28 @@
       "type": "image/x-icon"
     },
     {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "android-chrome-256x256.png",
-      "sizes": "256x256",
+      "src": "mstile-150x150",
+      "sizes": "150x150",
       "type": "image/png"
     },
     {
       "src": "apple-touch-icon.png",
       "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-default.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
