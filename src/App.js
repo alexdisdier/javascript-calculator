@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { numberIsDecimal } from './Utils/Utils';
+
 import './App.scss';
 
 class App extends Component {
@@ -284,13 +286,17 @@ class App extends Component {
 
   computeHandler = (event) => {
     // const opsRegex = /\+|-|\*|\//gm; 
+    let result = parseFloat(eval(this.state.previousValue + this.state.currentSign + this.state.currentValue));
 
     if (this.state.currentValue === ''){
       return;
     }
 
+    if (numberIsDecimal(result)){
+      result = parseFloat(result.toFixed(10)); // toFixed() allows us to round up at 10 digits. (number).toFixed(10)
+    }
+
     if (this.state.signOver){
-      let result = eval(this.state.previousValue + this.state.currentSign + this.state.currentValue); // toFixed() allows us to round up at 10 digits. (number).toFixed(10)
       this.setState({
         currentValue: '',
         currentDisplay: result,
@@ -301,7 +307,6 @@ class App extends Component {
         signOver: false
       })
     } else {
-      let result = eval(this.state.computingDisplay);
       this.setState({
         currentValue: '',
         currentDisplay: result,

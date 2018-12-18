@@ -39,6 +39,10 @@
   #output {
     font-size: 16px;
     opacity: 0.5;
+
+    @media only screen and (min-width: $breakpoint-sm-tablet) and (max-width: $breakpoint-desktop)and (orientation: portrait) {
+      font-size: 32px;
+    }
   }
   
   #display {
@@ -53,6 +57,10 @@
       visibility: hidden;
       opacity: 0;
       transition: visibility 0s 2s, opacity 2s linear;
+    }
+
+    @media only screen and (min-width: $breakpoint-sm-tablet) and (max-width: $breakpoint-desktop) and (orientation: portrait) {
+      font-size: 64px;
     }
   }
 }
@@ -88,6 +96,10 @@
   &:active {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     transition: 0s;
+  }
+
+  @media only screen and (min-width: $breakpoint-sm-tablet) and (max-width: $breakpoint-desktop) and (orientation: portrait) {
+    font-size: 40px;
   }
 }
 
