@@ -1,15 +1,37 @@
 # Synopsis
 
-This is a javascript calculator.
+This is a javascript calculator using React.
+
+![screenshot of the javascript calculator](/src/screenshot.jpg?raw=true "screenshot of a Javascript Calculator")
 
 ## Usage example
 
-IN WORKING PROGRESS ..... See a live version running this template - https://alexdisdier.github.io/javascript-calculator/
+See a live version running this template - https://alexdisdier.github.io/javascript-calculator/
 
 ## Directory Structure
 
 ```bash
 
+calculator
+├── .git
+├── build
+├── node_modules
+├── public
+├── src
+│   ├── utils
+│   │   ├── _helpers.scss
+│   │   ├── Utils.js
+│   ├── App.js
+│   ├── App.scss
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   └── serviceWorker.js
+├── .gitattributes
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
 
 ```
 
@@ -30,6 +52,3 @@ IN WORKING PROGRESS ..... See a live version running this template - https://ale
 * This is part of Front End Libraries Projects in order to get the certification from [FreeCodeCamp](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator)
 
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-* Deploy React to github pages [codeburst](https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d)
-
