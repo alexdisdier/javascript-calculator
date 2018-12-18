@@ -1,7 +1,10 @@
 @import './Utils/_helpers.scss';
 
+body {
+  background-color: #157276;
+}
+
 .App {
-  /* background-color: #393C58; */
   background: linear-gradient(172deg, rgba(2,0,36,1) 0%, rgba(57,60,88,1) 51%, rgba(21,114,118,1) 100%);
   min-height: 100vh;
   display: flex;
