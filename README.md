@@ -6,7 +6,7 @@ This is a javascript calculator using React.
 
 ## Usage example
 
-See a live version running this template - https://alexdisdier.github.io/javascript-calculator/
+See a live version running this template - https://alexdisdier.fr/calculator/
 
 ## Directory Structure
 
