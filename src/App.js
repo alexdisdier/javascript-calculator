@@ -286,7 +286,7 @@ class App extends Component {
 
   computeHandler = (event) => {
     // const opsRegex = /\+|-|\*|\//gm; 
-    let result = parseFloat(eval(this.state.previousValue + this.state.currentSign + this.state.currentValue));
+    let result = parseFloat(eval(this.state.computingDisplay));
 
     if (this.state.currentValue === ''){
       return;
