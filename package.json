@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://alexdisdier.github.io/javascript-calculator/",
   "dependencies": {
+    "@alexdisdier/react-add-on": "^1.0.0",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
