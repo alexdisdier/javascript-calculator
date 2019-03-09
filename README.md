@@ -13,9 +13,6 @@ See demo - https://alexdisdier.github.io/javascript-calculator/
 ```bash
 
 calculator
-├── .git
-├── build
-├── node_modules
 ├── public
 ├── src
 │   ├── utils
@@ -27,7 +24,6 @@ calculator
 │   ├── index.css
 │   ├── index.js
 │   └── serviceWorker.js
-├── .gitattributes
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
