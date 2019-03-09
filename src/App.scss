@@ -1,11 +1,16 @@
-@import './Utils/_helpers.scss';
+@import "./Utils/_helpers.scss";
 
 body {
   background-color: #157276;
 }
 
 .App {
-  background: linear-gradient(172deg, rgba(2,0,36,1) 0%, rgba(57,60,88,1) 51%, rgba(21,114,118,1) 100%);
+  background: linear-gradient(
+    172deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(57, 60, 88, 1) 51%,
+    rgba(21, 114, 118, 1) 100%
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,9 +25,9 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  background-color: #2B2D41;
+  background-color: #2b2d41;
   /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 
   @media (min-width: $breakpoint-desktop) {
     height: 500px;
@@ -30,7 +35,7 @@ body {
   }
 }
 
-#display-flex {
+#flex {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,14 +48,14 @@ body {
     font-size: 16px;
     opacity: 0.5;
 
-    @media only screen and (min-width: $breakpoint-sm-tablet) and (max-width: $breakpoint-desktop)and (orientation: portrait) {
+    @media only screen and (min-width: $breakpoint-sm-tablet) and (max-width: $breakpoint-desktop) and (orientation: portrait) {
       font-size: 32px;
     }
   }
-  
+
   #display {
     font-size: 32px;
-  
+
     .visible {
       visibility: visible;
       opacity: 1;
@@ -68,7 +73,6 @@ body {
   }
 }
 
-
 #pad {
   display: flex;
   flex-wrap: wrap;
@@ -82,22 +86,22 @@ body {
   height: 20%;
   padding: 0;
   margin: 0;
-  font-size: 20px;
-  background-color:rgba(12,11,46, 0.2);
-  border: 1px solid rgba(12, 11, 46, 0.1);
+  font-size: 24px;
+  background-color: rgba(12, 11, 46, 0.1);
+  border: 1px solid rgba(12, 11, 46, 0.2);
   color: #fff;
   transition: 0s 0.2s;
 
   &:hover {
     cursor: pointer;
   }
-  
-  &:focus{
+
+  &:focus {
     outline: none;
   }
 
   &:active {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     transition: 0s;
   }
 
@@ -106,15 +110,15 @@ body {
   }
 }
 
-#pad .dark{
+#pad .dark {
   color: #6d6c81;
 }
 
 #pad .number {
-  color: #438e91;
+  color: #58b3b7;
 }
 
-#pad #zero{
+#pad #zero {
   flex-basis: 50%;
 }
 

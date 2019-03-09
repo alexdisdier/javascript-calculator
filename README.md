@@ -6,7 +6,7 @@ This is a javascript calculator using React.
 
 ## Usage example
 
-See a live version running this template - https://alexdisdier.fr/calculator/
+See demo - https://alexdisdier.fr/calculator/
 
 ## Directory Structure
 
@@ -35,20 +35,40 @@ calculator
 
 ```
 
+## Running the project
+
+Clone this repository :
+
+```bash
+git clone https://github.com/alexdisdier/javascript-calculator.git
+
+cd javascript-calculator
+```
+
+Start the server:
+
+```bash
+npm start
+```
+
+Build the project
+
+```bash
+npm run build
+```
+
 ## Built With
 
-* html
-* scss
-* [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
-* [React.js](https://reactjs.org/docs/hello-world.html)
-* [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
+- html
+- scss
+- [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+- [React.js](https://reactjs.org/docs/hello-world.html)
+- [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
 
 ## Authors
 
-**Alex Disdier** - *Initial work* - [alexdisdier](https://github.com/alexdisdier)
+**Alex Disdier** - _Initial work_ - [alexdisdier](https://github.com/alexdisdier)
 
 ## Acknowledgments
 
-* This is part of Front End Libraries Projects in order to get the certification from [FreeCodeCamp](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator)
-
-* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

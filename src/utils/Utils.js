@@ -1,12 +1,6 @@
-// function testFunction () {
-//   alert("testFunction works");
-// }
+export const numberIsDecimal = n => {
+  const result = n - Math.floor(n) !== 0;
 
-export const numberIsDecimal = (n) => {
-  var result = (n - Math.floor(n)) !== 0; 
-   
-  if (result)
-    return true;
-   else
-     return false;
-}
+  if (result) return true;
+  else return false;
+};

@@ -5,107 +5,18 @@ import { numberIsDecimal } from "./Utils/Utils";
 import "./App.scss";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentValue: "",
-      previousValue: "0",
-      currentSign: "",
-      lastClicked: "",
-      computingDisplay: "",
-      currentDisplay: "0",
-      hasSign: false,
-      decimal: false,
-      signOver: false,
-      percentClicked: false
-      // keyCode: [
-      //   {
-      //     id: 1,
-      //     keyPushed: '0',
-      //     keyCode: 48
-      //   },
-      //   {
-      //     id: 2,
-      //     keyPushed: '1',
-      //     keyCode: 49
-      //   },
-      //   {
-      //     id: 3,
-      //     keyPushed: '2',
-      //     keyCode: 50
-      //   },
-      //   {
-      //     id: 4,
-      //     keyPushed: '3',
-      //     keyCode: 51
-      //   },
-      //   {
-      //     id: 5,
-      //     keyPushed: '4',
-      //     keyCode: 52
-      //   },
-      //   {
-      //     id: 6,
-      //     keyPushed: '5',
-      //     keyCode: 53
-      //   },
-      //   {
-      //     id: 7,
-      //     keyPushed: '6',
-      //     keyCode: 54
-      //   },
-      //   {
-      //     id: 8,
-      //     keyPushed: '7',
-      //     keyCode: 55
-      //   },
-      //   {
-      //     id: 9,
-      //     keyPushed: '8',
-      //     keyCode: 56
-      //   },
-      //   {
-      //     id: 10,
-      //     keyPushed: '9',
-      //     keyCode: 57
-      //   },
-      //   {
-      //     id: 11,
-      //     keyPushed: '+',
-      //     keyCode: 187
-      //   },
-      //   {
-      //     id: 12,
-      //     keyPushed: '-',
-      //     keyCode: 189
-      //   },
-      //   {
-      //     id: 13,
-      //     keyPushed: '*',
-      //     keyCode: 56
-      //   },
-      //   {
-      //     id: 14,
-      //     keyPushed: '/',
-      //     keyCode: 191
-      //   },
-      //   {
-      //     id: 15,
-      //     keyPushed: '=',
-      //     keyCode: 187
-      //   }
-      // ]
-    };
-
-    this.operatorsHandler = this.operatorsHandler.bind(this);
-    this.numbersHandler = this.numbersHandler.bind(this);
-    this.decimalHandler = this.decimalHandler.bind(this);
-    this.percentageHandler = this.percentageHandler.bind(this);
-    this.negativePositiveHandler = this.negativePositiveHandler.bind(this);
-    this.computeHandler = this.computeHandler.bind(this);
-    this.resetHandler = this.resetHandler.bind(this);
-    // this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
+  state = {
+    currentValue: "",
+    previousValue: "0",
+    currentSign: "",
+    lastClicked: "",
+    computingDisplay: "",
+    currentDisplay: "0",
+    hasSign: false,
+    decimal: false,
+    signOver: false,
+    percentClicked: false
+  };
 
   operatorsHandler = event => {
     const opsRegex = /\+|-|\*|\//gm;
@@ -210,7 +121,7 @@ class App extends Component {
     }
   };
 
-  percentageHandler = event => {
+  percentageHandler = () => {
     if (this.state.currentSign === "") {
       this.setState({
         currentValue: parseFloat(this.state.currentValue / 100),
@@ -231,7 +142,7 @@ class App extends Component {
     }
   };
 
-  negativePositiveHandler = event => {
+  negativePositiveHandler = () => {
     const negativePositive = -this.state.currentValue;
 
     const isNegative = Math.sign(parseFloat(this.state.currentValue)) === 1;
@@ -276,22 +187,7 @@ class App extends Component {
     }
   };
 
-  // componentDidMount() {
-  //   document.addEventListener('keydown', this.handleKeyPress);
-  // }
-
-  // componentWillUnmount() {
-  //   document.removeEventListener('keydown', this.handleKeyPress);
-  // }
-
-  // handleKeyPress(e) {
-  //   if (e.keyCode === this.props.keyCode) {
-  //     this.playSoundHandler();
-  //   }
-  // }
-
   computeHandler = event => {
-    // const opsRegex = /\+|-|\*|\//gm;
     let result = parseFloat(eval(this.state.computingDisplay));
 
     if (this.state.currentValue === "") {
@@ -354,7 +250,7 @@ class App extends Component {
     return (
       <div className="App">
         <div id="calculator">
-          <div id="display-flex">
+          <div id="flex">
             <span id="output" style={styleOuput}>
               {this.state.computingDisplay}
             </span>
@@ -364,104 +260,53 @@ class App extends Component {
           </div>
 
           <div id="pad">
-            <button id="clear" className="dark" onClick={this.resetHandler}>
+            <button className="dark" onClick={this.resetHandler}>
               AC
             </button>
             <button
-              id="plus-negative"
               value="+/-"
               className="dark"
               onClick={this.negativePositiveHandler}
             >
               +/-
             </button>
-            <button
-              id="percentage"
-              value="%"
-              className="dark"
-              onClick={this.percentageHandler}
-            >
+            <button value="%" className="dark" onClick={this.percentageHandler}>
               %
             </button>
-            <button id="divide" value=" / " onClick={this.operatorsHandler}>
+            <button value=" / " onClick={this.operatorsHandler}>
               ÷
             </button>
-            <button
-              id="seven"
-              value="7"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="7" className="number" onClick={this.numbersHandler}>
               7
             </button>
-            <button
-              id="eight"
-              value="8"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="8" className="number" onClick={this.numbersHandler}>
               8
             </button>
-            <button
-              id="nine"
-              value="9"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="9" className="number" onClick={this.numbersHandler}>
               9
             </button>
-            <button id="multiply" value=" * " onClick={this.operatorsHandler}>
+            <button value=" * " onClick={this.operatorsHandler}>
               x
             </button>
-            <button
-              id="four"
-              value="4"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="4" className="number" onClick={this.numbersHandler}>
               4
             </button>
-            <button
-              id="five"
-              value="5"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="5" className="number" onClick={this.numbersHandler}>
               5
             </button>
-            <button
-              id="six"
-              value="6"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="6" className="number" onClick={this.numbersHandler}>
               6
             </button>
-            <button id="subtract" value=" - " onClick={this.operatorsHandler}>
+            <button value=" - " onClick={this.operatorsHandler}>
               -
             </button>
-            <button
-              id="one"
-              value="1"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="1" className="number" onClick={this.numbersHandler}>
               1
             </button>
-            <button
-              id="two"
-              value="2"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="2" className="number" onClick={this.numbersHandler}>
               2
             </button>
-            <button
-              id="three"
-              value="3"
-              className="number"
-              onClick={this.numbersHandler}
-            >
+            <button value="3" className="number" onClick={this.numbersHandler}>
               3
             </button>
             <button id="add" value=" + " onClick={this.operatorsHandler}>
@@ -475,20 +320,14 @@ class App extends Component {
             >
               0
             </button>
-            <button
-              id="decimal"
-              value="."
-              className="number"
-              onClick={this.decimalHandler}
-            >
+            <button value="." className="number" onClick={this.decimalHandler}>
               .
             </button>
-            <button id="equals" value=" = " onClick={this.computeHandler}>
+            <button value=" = " onClick={this.computeHandler}>
               =
             </button>
           </div>
         </div>
-        {/* <span id="author">Designed and Coded by <a href="https://alexdisdier.fr" target="_blank" rel="noopener noreferrer">Alex Disdier</a></span> */}
       </div>
     );
   }
