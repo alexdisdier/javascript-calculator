@@ -1,8 +1,13 @@
+<p align="center">
+   <a href="https://alexdisdier.github.io/javascript-calculator/">
+    <img alt="react-native-gifted-chat" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552162391/github-screenshot-gif/calculator.gif" width="299" height="498" />
+ </a> `
+
+</p>
+
 # Synopsis
 
 This is a javascript calculator using React.
-
-![screenshot of the javascript calculator](/src/screenshot.jpg?raw=true "screenshot of a Javascript Calculator")
 
 ## Usage example
 
