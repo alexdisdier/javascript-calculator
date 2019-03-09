@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://alexdisdier.github.io/javascript-calculator/">
+   <a href="https://alexdisdier.github.io/javascript-calculator/" target="blank">
     <img alt="Javascript calculator alex disdier" src="https://res.cloudinary.com/dvrkxmxkw/image/upload/v1552162391/github-screenshot-gif/calculator.gif" width="299" height="498" />
  </a> `
 
